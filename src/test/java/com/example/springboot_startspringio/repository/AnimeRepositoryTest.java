@@ -1,6 +1,7 @@
 package com.example.springboot_startspringio.repository;
 
 import com.example.springboot_startspringio.domain.Anime;
+import com.example.springboot_startspringio.util.AnimeCreator;
 
 import jakarta.validation.ConstraintViolationException;
 
@@ -22,7 +23,7 @@ class AnimeRepositoryTest {
     @Test
     @DisplayName("Save persists anime when successful")
     void save_PersistAnime_WhenSuccessful() {
-        Anime animeToBeSaved = createAnime();
+        Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 
         Anime animeSaved = this.animeRepository.save(animeToBeSaved);
 
@@ -36,7 +37,7 @@ class AnimeRepositoryTest {
     @Test
     @DisplayName("Save updates anime when successful")
     void save_UpdateAnime_WhenSuccessful() {
-        Anime animeToBeSaved = createAnime();
+        Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 
         Anime animeSaved = this.animeRepository.save(animeToBeSaved);
 
@@ -54,7 +55,7 @@ class AnimeRepositoryTest {
     @Test
     @DisplayName("Delete removes anime when successful")
     void delete_RemovesAnime_WhenSuccessful() {
-        Anime animeToBeSaved = createAnime();
+        Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 
         Anime animeSaved = this.animeRepository.save(animeToBeSaved);
 
@@ -68,7 +69,7 @@ class AnimeRepositoryTest {
     @Test
     @DisplayName("Find By Name returns list of anime when successful")
     void findByName_ReturnsListOfAnime_WhenSuccessful() {
-        Anime animeToBeSaved = createAnime();
+        Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 
         Anime animeSaved = this.animeRepository.save(animeToBeSaved);
 
@@ -103,12 +104,6 @@ class AnimeRepositoryTest {
         Assertions.assertThatExceptionOfType(ConstraintViolationException.class)
                 .isThrownBy(() -> this.animeRepository.save(anime))
                 .withMessageContaining("The anime name cannot be empty");
-    }
-
-    private Anime createAnime() {
-        return Anime.builder()
-                .name("Hajime no Ippo")
-                .build();
     }
 
 }

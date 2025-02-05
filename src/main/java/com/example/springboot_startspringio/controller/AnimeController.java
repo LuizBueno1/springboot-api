@@ -4,7 +4,6 @@ import com.example.springboot_startspringio.domain.Anime;
 import com.example.springboot_startspringio.requests.AnimePostRequestBody;
 import com.example.springboot_startspringio.requests.AnimePutRequestBody;
 import com.example.springboot_startspringio.service.AnimeService;
-import com.example.springboot_startspringio.util.DateUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -15,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -23,20 +21,16 @@ import java.util.List;
 @Log4j2
 @RequiredArgsConstructor
 public class AnimeController {
-   
-    private final DateUtil dateUtil;
 
     private final AnimeService animeService;
 
     @GetMapping
     public ResponseEntity<Page<Anime>> list(Pageable pageable){
-        log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return new ResponseEntity<>(animeService.listAll(pageable), HttpStatus.OK);
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<Anime>> listAll(){
-        log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return new ResponseEntity<>(animeService.listAllNonPageable(), HttpStatus.OK);
     }
 
