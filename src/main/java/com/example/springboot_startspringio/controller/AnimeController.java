@@ -56,7 +56,7 @@ public class AnimeController {
     }
 
     @PutMapping
-    public ResponseEntity<Anime> replace(@RequestBody AnimePutRequestBody animePutRequestBody){
+    public ResponseEntity<Void> replace(@RequestBody AnimePutRequestBody animePutRequestBody){
         animeService.replace(animePutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
