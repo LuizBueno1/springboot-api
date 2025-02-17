@@ -18,7 +18,14 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @EnableMethodSecurity
 public class SecurityConfig {
-
+     /**
+     * BasicAuthenticationFilter
+     * UsernamePasswordAuthenticationFilter
+     * DefaultLoginPageGeneratingFilter
+     * DefaultLogoutPageGeneratingFilter
+     * FilterSecurityInterceptor
+     * Authentication -> Authorization
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -43,9 +50,14 @@ public class SecurityConfig {
 
         UserDetails user = User.withUsername("DevDojo")
             .password(passwordEncoder.encode("academy"))
-            .roles("USER", "ADMIN")
+            .roles("USER")
             .build();
 
-        return new InMemoryUserDetailsManager(user);
+        UserDetails admin = User.withUsername("Luiz")
+            .password(passwordEncoder.encode("admin"))
+            .roles("ADMIN")
+            .build();
+
+        return new InMemoryUserDetailsManager(user, admin);
     }
 }
