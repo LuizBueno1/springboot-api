@@ -44,7 +44,7 @@ public class AnimeController {
 
     @GetMapping("by-id/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Anime> findByIdAuthenticationPrincioal(@PathVariable long id,
+    public ResponseEntity<Anime> findByIdAuthenticationPrincipal(@PathVariable long id,
                                                                 @AuthenticationPrincipal UserDetails userDetails){
         log.info(userDetails);
         return new ResponseEntity<>(animeService.findByIdOrThrowBadRequestException(id), HttpStatus.OK);
@@ -56,7 +56,7 @@ public class AnimeController {
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Anime> save(@RequestBody @Valid AnimePostRequestBody animePostRequestBody){
         return new ResponseEntity<>(animeService.save(animePostRequestBody), HttpStatus.CREATED);
     }
