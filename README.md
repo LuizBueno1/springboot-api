@@ -1,4 +1,4 @@
-# 🎌 Anime Management API
+# Anime Management API
 
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![Java](https://img.shields.io/badge/Java-17+-orange.svg)](https://www.oracle.com/java/)
@@ -6,38 +6,38 @@
 [![API](https://img.shields.io/badge/REST%20API-Full%20CRUD-success.svg)](https://restfulapi.net/)
 [![Documentation](https://img.shields.io/badge/Swagger-OpenAPI%203-85EA2D.svg)](https://swagger.io/)
 
-A robust and secure RESTful API built with Spring Boot for managing anime collections. Features comprehensive CRUD operations, role-based authentication, input validation, and extensive error handling.
+A RESTful API built with Spring Boot for managing anime collections. Features comprehensive CRUD operations, role-based authentication, input validation, and extensive error handling.
 
-## 🌟 Features
+## Features
 
 ### Core Functionality
-- ✅ **Complete CRUD Operations** - Create, Read, Update, Delete anime entries
-- 📊 **Pagination Support** - Efficient data retrieval with customizable page sizes
-- 🔍 **Advanced Search** - Find anime by name with flexible search capabilities
-- 🛡️ **Role-Based Security** - Multi-level authentication and authorization
-- ✨ **Input Validation** - Comprehensive request validation with detailed error messages
-- 📚 **API Documentation** - Interactive Swagger/OpenAPI documentation
+- Complete CRUD Operations - Create, Read, Update, Delete anime entries
+- Pagination Support - Efficient data retrieval with customizable page sizes
+- Advanced Search - Find anime by name with flexible search capabilities
+- Role-Based Security - Multi-level authentication and authorization
+- Input Validation - Comprehensive request validation with detailed error messages
+- API Documentation - Interactive Swagger/OpenAPI documentation
 
 ### Security Features
-- 🔐 **Spring Security Integration** - Industry-standard security framework
-- 👥 **Dual Authentication System** - In-memory and database user management
-- 🎭 **Role-Based Access Control** - USER and ADMIN role hierarchies
-- 🔑 **Multiple Auth Methods** - Basic Auth and Form-based authentication
-- 🛡️ **Method-Level Security** - Fine-grained endpoint protection
+- Spring Security Integration - Industry-standard security framework
+- Dual Authentication System - In-memory and database user management
+- Role-Based Access Control - USER and ADMIN role hierarchies
+- Multiple Auth Methods - Basic Auth and Form-based authentication
+- Method-Level Security - Fine-grained endpoint protection
 
 ### Technical Excellence
-- 🏗️ **Clean Architecture** - Well-structured, maintainable codebase
-- 🗃️ **JPA/Hibernate Integration** - Efficient database operations
-- 🔄 **MapStruct Mapping** - Type-safe object mapping
-- 📊 **Custom Exception Handling** - Detailed error responses
-- 🎯 **Actuator Integration** - Health checks and monitoring endpoints
+- Clean Architecture - Well-structured, maintainable codebase
+- JPA/Hibernate Integration - Efficient database operations
+- MapStruct Mapping - Type-safe object mapping
+- Custom Exception Handling - Detailed error responses
+- Actuator Integration - Health checks and monitoring endpoints
 
 ### Prerequisites
-- ☕ Java 17 or higher
-- 🐘 PostgreSQL/MySQL (or H2 for development)
-- 🛠️ Maven 3.6+
+- Java 17 or higher
+- PostgreSQL/MySQL (or H2 for development)
+- Maven 3.6+
 
-## 🔐 Authentication
+## Authentication
 
 The API supports dual authentication modes:
 
@@ -50,32 +50,32 @@ The API supports dual authentication modes:
 ### Database Users (Production)
 Users stored in `DevDojoUser` entity with encrypted passwords and custom authorities.
 
-## 📋 API Endpoints
+## API Endpoints
 
-### 🎯 Anime Management
+### Anime Management
 
 #### Public Endpoints
 | Method | Endpoint | Description | Auth Required |
 |--------|----------|-------------|---------------|
-| `GET` | `/animes` | List all anime (paginated) | ✅ USER |
-| `GET` | `/animes/all` | List all anime (non-paginated) | ✅ USER |
-| `GET` | `/animes/{id}` | Get anime by ID | ✅ USER |
-| `GET` | `/animes/find?name={name}` | Search anime by name | ✅ USER |
+| `GET` | `/animes` | List all anime (paginated) | USER |
+| `GET` | `/animes/all` | List all anime (non-paginated) | USER |
+| `GET` | `/animes/{id}` | Get anime by ID | USER |
+| `GET` | `/animes/find?name={name}` | Search anime by name | USER |
 
 #### Protected Endpoints
 | Method | Endpoint | Description | Auth Required |
 |--------|----------|-------------|---------------|
-| `GET` | `/animes/by-id/{id}` | Get anime by ID (Admin only) | ✅ ADMIN |
-| `POST` | `/animes` | Create new anime | ✅ USER |
-| `PUT` | `/animes` | Update existing anime | ✅ USER |
-| `DELETE` | `/animes/admin/{id}` | Delete anime | ✅ ADMIN |
+| `GET` | `/animes/by-id/{id}` | Get anime by ID (Admin only) | ADMIN |
+| `POST` | `/animes` | Create new anime | USER |
+| `PUT` | `/animes` | Update existing anime | USER |
+| `DELETE` | `/animes/admin/{id}` | Delete anime | ADMIN |
 
-### 📊 System Endpoints
+### System Endpoints
 | Method | Endpoint | Description | Auth Required |
 |--------|----------|-------------|---------------|
-| `GET` | `/actuator/**` | Application health & metrics | ❌ Public |
+| `GET` | `/actuator/**` | Application health & metrics | Public |
 
-## 📝 Request/Response Examples
+## Request/Response Examples
 
 ### Create Anime
 ```http
@@ -140,7 +140,7 @@ GET /animes/find?name=Attack
 Authorization: Basic <credentials>
 ```
 
-## ❌ Error Handling
+## Error Handling
 
 The API provides comprehensive error responses:
 
@@ -168,7 +168,7 @@ The API provides comprehensive error responses:
 }
 ```
 
-## 🏗️ Architecture
+## Architecture
 
 ### Project Structure
 ```
@@ -192,7 +192,7 @@ com.example.springboot_startspringio/
 - **RestExceptionHandler**: Global exception handling
 - **AnimeMapper**: Object mapping with MapStruct
 
-## 🔧 Configuration
+## Configuration
 
 ### Default Pagination
 - Default page size: 5 items
@@ -203,19 +203,19 @@ com.example.springboot_startspringio/
 - Role-based endpoint protection
 - Support for both form login and HTTP Basic Auth
 
-## 🧪 Testing
+## Testing
 
-The project features a comprehensive test suite covering all layers of the application with **100% coverage** of critical business logic and API endpoints.
+The project features a comprehensive test suite covering all layers of the application with complete coverage of critical business logic and API endpoints.
 
 ### Test Architecture
 
-#### 🏗️ Test Structure
+#### Test Structure
 - **Unit Tests** - Service and controller layer testing with mocked dependencies
 - **Integration Tests** - Full application context testing with real database
 - **Repository Tests** - JPA repository testing with `@DataJpaTest`
 - **Test Utilities** - Reusable test data creators and helper classes
 
-#### 📊 Test Coverage
+#### Test Coverage
 
 | Layer | Test Class | Coverage |
 |-------|------------|----------|
@@ -224,71 +224,53 @@ The project features a comprehensive test suite covering all layers of the appli
 | **Repository** | `AnimeRepositoryTest` | JPA operations and constraints |
 | **Integration** | `AnimeControllerIT` | End-to-end API testing |
 
-### 🔬 Unit Tests
+### Unit Tests
 
 #### Controller Tests (`AnimeControllerTest`)
 - **Scope**: Tests REST controller endpoints with mocked service layer
 - **Framework**: JUnit 5 + Mockito + AssertJ
 - **Coverage**: 
-  - ✅ GET `/animes` - Paginated listing
-  - ✅ GET `/animes/all` - Non-paginated listing  
-  - ✅ GET `/animes/{id}` - Find by ID
-  - ✅ GET `/animes/find` - Search by name
-  - ✅ POST `/animes` - Create anime
-  - ✅ PUT `/animes` - Update anime
-  - ✅ DELETE `/animes/admin/{id}` - Delete anime
-  - ✅ Empty result handling
+  - GET `/animes` - Paginated listing
+  - GET `/animes/all` - Non-paginated listing  
+  - GET `/animes/{id}` - Find by ID
+  - GET `/animes/find` - Search by name
+  - POST `/animes` - Create anime
+  - PUT `/animes` - Update anime
+  - DELETE `/animes/admin/{id}` - Delete anime
+  - Empty result handling
 
 #### Service Tests (`AnimeServiceTest`)
 - **Scope**: Tests business logic with mocked repository layer
 - **Framework**: JUnit 5 + Mockito + AssertJ
 - **Coverage**:
-  - ✅ Data retrieval operations
-  - ✅ CRUD operations
-  - ✅ Exception handling (`BadRequestException`)
-  - ✅ Edge cases (empty results, not found scenarios)
+  - Data retrieval operations
+  - CRUD operations
+  - Exception handling (`BadRequestException`)
+  - Edge cases (empty results, not found scenarios)
 
 #### Repository Tests (`AnimeRepositoryTest`)
 - **Scope**: Tests JPA operations against embedded H2 database
 - **Framework**: `@DataJpaTest` + JUnit 5 + AssertJ
 - **Coverage**:
-  - ✅ Entity persistence and updates
-  - ✅ Custom query methods (`findByName`)
-  - ✅ Constraint validation
-  - ✅ Delete operations
+  - Entity persistence and updates
+  - Custom query methods (`findByName`)
+  - Constraint validation
+  - Delete operations
 
-### 🌐 Integration Tests
+### Integration Tests
 
 #### End-to-End Tests (`AnimeControllerIT`)
 - **Scope**: Full application testing with real HTTP requests
 - **Framework**: `@SpringBootTest` + `TestRestTemplate`
 - **Features**:
-  - 🔐 **Multi-Role Authentication Testing**
+  - **Multi-Role Authentication Testing**
     - USER role authentication (`testRestTemplateRoleUser`)
     - ADMIN role authentication (`testRestTemplateRoleAdmin`)
-  - 🗃️ **Real Database Operations** - Uses `@AutoConfigureTestDatabase`
-  - 🔄 **Fresh Test Context** - `@DirtiesContext` ensures isolated tests
-  - 🛡️ **Security Testing** - Validates role-based access control
+  - **Real Database Operations** - Uses `@AutoConfigureTestDatabase`
+  - **Fresh Test Context** - `@DirtiesContext` ensures isolated tests
+  - **Security Testing** - Validates role-based access control
 
-**Test Coverage:**
-```java
-// Authentication Setup
-@TestConfiguration
-static class Config {
-    @Bean(name = "testRestTemplateRoleUser")
-    public TestRestTemplate testRestTemplateRoleUserCreator()
-    
-    @Bean(name = "testRestTemplateRoleAdmin") 
-    public TestRestTemplate testRestTemplateRoleAdminCreator()
-}
-
-// Security Test Example
-@Test
-@DisplayName("delete returns 403 when user is not admin")
-void delete_Returns403_WhenUserIsNotAdmin()
-```
-
-### 🛠️ Test Utilities
+### Test Utilities
 
 #### Test Data Creators
 - **`AnimeCreator`** - Creates test anime entities
@@ -299,44 +281,16 @@ void delete_Returns403_WhenUserIsNotAdmin()
 - **`AnimePostRequestBodyCreator`** - Creates POST request DTOs
 - **`AnimePutRequestBodyCreator`** - Creates PUT request DTOs
 
-### 🚀 Running Tests
+### Test Validation Features
 
-#### Run All Tests
-```bash
-mvn test
-```
+- Authentication Testing - Both USER and ADMIN role validation
+- Security Enforcement - Forbidden access scenarios (403 responses)
+- Data Validation - Constraint violation handling
+- Error Scenarios - Not found exceptions and empty results
+- HTTP Status Validation - Proper response codes (200, 201, 204, 403)
+- Response Structure - Complete DTO validation
 
-#### Run Specific Test Categories
-```bash
-# Unit tests only
-mvn test -Dtest="*Test"
-
-# Integration tests only  
-mvn test -Dtest="*IT"
-
-# Repository tests only
-mvn test -Dtest="*RepositoryTest"
-```
-
-#### Test Reports
-```bash
-# Generate detailed test report
-mvn surefire-report:report
-
-# View coverage (if configured)
-mvn jacoco:report
-```
-
-### ✅ Test Validation Features
-
-- **Authentication Testing** - Both USER and ADMIN role validation
-- **Security Enforcement** - Forbidden access scenarios (403 responses)
-- **Data Validation** - Constraint violation handling
-- **Error Scenarios** - Not found exceptions and empty results
-- **HTTP Status Validation** - Proper response codes (200, 201, 204, 403)
-- **Response Structure** - Complete DTO validation
-
-### 📋 Example Test Output
+### Example Test Output
 ```bash
 [INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
@@ -348,19 +302,10 @@ mvn jacoco:report
 
 The comprehensive test suite ensures reliability, maintainability, and confidence in API behavior across all scenarios.
 
-## 📚 Documentation
+## Documentation
 
 - **Swagger/OpenAPI**: Available at `/swagger-ui.html`
 - **Actuator Endpoints**: Available at `/actuator`
 - **API Annotations**: Comprehensive OpenAPI annotations for all endpoints
-
-## 👨‍💻 Author
-
-Built using Spring Boot and modern Java practices.
-
-**Luiz Henrique Bueno**
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luiz-henrique-bueno-152ba329a/)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LuizBueno1)
 
 ---
